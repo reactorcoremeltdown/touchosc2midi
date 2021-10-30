@@ -15,6 +15,29 @@ deadends, I figured out, I need to write my own. Specifically this program aims 
 - it advertises the service via `zeroconf`
 - it needs minimal configuration
 
+A few notes on this fork
+------------------------
+
+This fork attempts to bring touchosc2midi to python3 environment.
+
+There's not much to change, except of following:
+
++ Cython has to be updated to latest version, the 0.25.2 version fails to build on a modern linux machine
++ All shebangs need to point to python3(I guess that's obvious)
+
+To get a working copy of touchosc2midi running on python 3, please do the following(considering you're on a debian-based machine, like my Pi Zero W running RaspiOS):
+
++ `apt-get update && apt-get install python3-pip liblo-dev libjack-jackd2-dev`
++ `git clone https://github.com/reactorcoremeltdown/touchosc2midi.git`
++ `cd touchosc2midi && sudo pip3 install -r requirements.txt`
++ `sudo python3 setup.py install`
+
+**Disclaimer: I am not a professional python developer, so I cannot guarantee if the commands above won't cause any damage to your system, please proceed with care**.
+
+Doing this allowed me to have a working copy of `touchosc2midi` on my Pi Zero W, so that I can connect my old Lenovo Yoga tablet to my Nux MG-300 guitar FX processor. Works great so far!
+
+All the kudos to the original developer of `touchosc2midi`!
+
 Dependencies
 ------------
 `touchosc2midi` is built on top of these pip-installable packages:
